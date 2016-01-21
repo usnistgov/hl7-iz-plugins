@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.nist.healthcare.hl7.v2.iz-plugins</groupId>
 	<artifactId>iz-plugins</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -21,11 +21,11 @@
 		<dependency>
 			<groupId>gov.nist</groupId>
 			<artifactId>hl7-v2-validation</artifactId>
-			<version>1.0.0-beta-10.2-SNAPSHOT</version>
+			<version>1.0.1</version>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
-		<distributionManagement>
+	<distributionManagement>
 		<repository>
 			<id>releases</id>
 			<url>http://vm-070.nist.gov:8081/nexus/content/repositories/releases</url>

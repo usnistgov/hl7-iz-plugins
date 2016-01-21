@@ -65,7 +65,7 @@ public class IZ24Constraint {
 
 			}
 		}
-		
+		System.out.println(ht.toString());
 		for(String id : ht.keySet()){
 			ArrayList<OBXT> tmp = ht.get(id);
 			if(tmp.contains(OBXT.barCoded) && tmp.contains(OBXT.presentDate) && tmp.size() == 2)
