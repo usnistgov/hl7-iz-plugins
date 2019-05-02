@@ -8,14 +8,9 @@ import hl7.v2.instance.Element;
 import hl7.v2.instance.Query;
 import hl7.v2.instance.Simple;
 
-/**
- * This is dummy plugin that can be called within a constraint
- */
+
 public class IZ24Constraint {
 	
-	/**
-	 * @return True if the asssertion succeed, false otherwise
-	 */
 	public enum OBXT {
 		barCoded, presentDate, vaccType, versDate, other
 	}
@@ -27,8 +22,8 @@ public class IZ24Constraint {
 		// All OBXs
 		List<Element> OBXList1 = Query.query(context, "5[*].1[1]").get();
 		if (OBXList1 == null || OBXList1.size() < 2) {
-            return false;
-        }
+            		return false;
+        	}
 
 		for(int i = 0; i < OBXList1.size(); i++){
 			Element OBX1 = OBXList1.apply(i);
@@ -47,9 +42,9 @@ public class IZ24Constraint {
 				else if(elm.apply(0).value().raw().equals("29768-9")){
 					t = OBXT.versDate;
 				}
-				else
+				else{
 					t = OBXT.other;
-				
+				}
 				List<Simple> elm1 = Query.queryAsSimple(OBX1, "4[1]").get();
 				if(elm1 != null && elm1.size() > 0){
 					String id = elm1.apply(0).value().raw();
@@ -65,7 +60,7 @@ public class IZ24Constraint {
 
 			}
 		}
-		System.out.println(ht.toString());
+
 		for(String id : ht.keySet()){
 			ArrayList<OBXT> tmp = ht.get(id);
 			if(tmp.contains(OBXT.barCoded) && tmp.contains(OBXT.presentDate) && tmp.size() == 2)
